@@ -1,0 +1,67 @@
+{
+  "xroad_metrics": {
+    "xroad_server": "http://your-security-server:8080",
+    "client_id": "DEV/GOV/12345678/MonitoringClient",
+    "xroad_instance": "DEV",
+    "timeout": 30,
+    "ssl_verify": true,
+    "cert_path": "/certs/client.pem",
+    "key_path": "/certs/client.key"
+  },
+  "xroad_metrics_db": {
+    "host": "localhost",
+    "database": "op_monitor",
+    "user": "xroad_metrics",
+    "password": "secure_password",
+    "port": 5432
+  },
+  "database": {
+    "path": "xroad_enhanced.db"
+  },
+  "monitoring": {
+    "interval_minutes": 15,
+    "data_retention_days": 30,
+    "health_check_interval": 5
+  },
+  "alerts": {
+    "email": {
+      "enabled": true,
+      "smtp_server": "smtp.company.com",
+      "smtp_port": 587,
+      "username": "xroad-monitor@company.com",
+      "password": "app_password",
+      "to_addresses": [
+        "admin@company.com",
+        "ops@company.com"
+      ]
+    },
+    "thresholds": {
+      "max_response_time_ms": 5000,
+      "min_success_rate": 0.95,
+      "max_error_rate": 0.05
+    }
+  },
+  "services_to_monitor": [
+    {
+      "service_id": "DEV/GOV/87654321/TestSystem/testService",
+      "description": "Serviço de teste",
+      "critical": false
+    },
+    {
+      "service_id": "DEV/GOV/11111111/ProductionSystem/criticalService", 
+      "description": "Serviço crítico de produção",
+      "critical": true
+    }
+  ],
+  "dashboard": {
+    "port": 8889,
+    "refresh_interval": 30,
+    "show_raw_data": false
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "/var/log/xroad-enhanced-agent.log",
+    "max_size_mb": 100,
+    "backup_count": 5
+  }
+}
