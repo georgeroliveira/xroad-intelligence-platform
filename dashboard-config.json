@@ -1,0 +1,37 @@
+{
+  "xroad_server": "http://your-xroad-server:8080",
+  "services": [
+    {
+      "subsystem": "GOV/12345678/TestSystem",
+      "service": "testService",
+      "description": "Serviço de teste"
+    },
+    {
+      "subsystem": "GOV/87654321/AnotherSystem",
+      "service": "dataService",
+      "description": "Serviço de dados"
+    }
+  ],
+  "check_interval": 60,
+  "alert_threshold": 5000,
+  "slow_threshold": 3000,
+  "email": {
+    "enabled": false,
+    "smtp_server": "smtp.gmail.com",
+    "smtp_port": 587,
+    "username": "your-monitoring@company.com",
+    "password": "your-app-password",
+    "to_addresses": [
+      "admin@company.com",
+      "ops-team@company.com"
+    ]
+  },
+  "slack": {
+    "enabled": false,
+    "webhook_url": "https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK"
+  },
+  "dashboard": {
+    "port": 8888,
+    "refresh_interval": 30
+  }
+}
